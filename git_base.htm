@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://rogerdudler.github.io/git-guide/index.vi.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>git - hướng dẫn đơn giản</title>
+   
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+    <script id="twitter-wjs" src="js/widgets.js"></script><script type="text/javascript" async="" src="js/ga.js"></script><script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-652147-13']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+      function recordOutboundLink(link, category, action) {
+         _gat._getTrackerByName()._trackEvent(category, action);
+         setTimeout('document.location = "' + link.href + '"', 100);
+      }
+    </script>
+<script type="text/javascript" async="" src="js/embed.js"></script><script src="js/alfie.f51946af45e0b561c60f768335c9eb79.js" async="" charset="UTF-8"></script></head>
+<body data-twttr-rendered="true">
+    <div class="scrollblock block-title">
+        <h1>Sổ tay Git</h1>
+        <p>Đây là một hướng dẫn đơn giản cho người mới học ;)</p>
+  
+        <img src="img/arrow.png" alt="">
+    </div>
+    <!-- setup -->
+    <a name="setup"></a>
+    <div class="scrollblock block-setup">
+        <h2>cài đặt</h2>
+        <p>
+            <a href="http://code.google.com/p/git-osx-installer/downloads/list?can=3">Tải git về cho OSX</a>
+        </p>
+        <p>
+            <a href="http://msysgit.github.io/">Tải git về cho Windows</a>
+        </p>
+        <p>
+            <a href="http://book.git-scm.com/2_installing_git.html">Tải git về cho Linux</a>
+        </p>
+    </div>
+    <a name="create"></a>
+    <div class="scrollblock block-create">
+        <h2>Tạo một repository mới</h2>
+        <p>
+            Để tạo 1 repository mới, bạn hãy mở cửa sổ lệnh và gõ dòng lệnh sau <br>
+            <code>git init</code><br>
+        </p>
+    </div>
+    <a name="checkout"></a>
+    <div class="scrollblock block-checkout">
+        <h2>sao chép (clone) một repository</h2>
+        <p>
+            để clone 1 repository có sẵn ở trên máy cục bộ, bạn hãy sử dụng dòng lệnh sau:<br>
+            <code>git clone /đường-dẫn-đến/repository/</code><br>
+            Nếu repository đó ở máy chủ khác thì bạn hãy gõ dòng lệnh sau:<br>
+            <code>git clone tênusername@địachỉmáychủ:/đường-dẫn-đến/repository</code>
+        </p>
+    </div>
+    <a name="trees"></a>
+    <div class="scrollblock block-trees">
+        <h2>quy trình làm việc</h2>
+        <p>
+            thư mục cục bộ của bạn bao gồm ba "trees" được duy trì bởi git.
+            đầu tiên là <code>Thư Mục Đang Làm Việc (Working Directory)</code> có chứa các tập tin hiện tại.
+            cái thứ hai là <code>Chỉ Mục (Index)</code> đóng vai trò như staging area và
+            cuối cùng là <code>HEAD</code> trỏ đến commit gần đây nhất của bạn.
+        </p>
+        <img src="img/trees.png" alt="">
+    </div>
+    <a name="add"></a>
+    <div class="scrollblock block-add">
+        <h2>thêm (add) &amp; commit</h2>
+        <p>
+            Bạn có thể đề xuất thay đổi (thêm nó vào chỉ mục <b>Index</b>) bằng cách<br>
+            <code>git add &lt;tên-tập-tin&gt;</code><br>
+            <code>git add *</code><br>
+            Đây là bước đầu tiên trong quy trình git cơ bản. Để thật sự commit những thay đổi, bạn sử dụng<br>
+            <code>git commit -m "Ghi chú Commit"</code><br>
+            Bây giờ thì tập tin đã được commit đến <b>HEAD</b>, nhưng chưa phải trên thư mục remote.
+        </p>
+    </div>
+    <a name="push"></a>
+    <div class="scrollblock block-remote">
+        <h2>đẩy (push) các thay đổi</h2>
+        <p>
+            Thay đổi của bạn hiện đang nằm tại <b>HEAD</b> của bản sao cục bộ đang làm việc. Để gửi những thay đổi đó đến repository remote, bạn thực thi<br>
+            <code>git push origin master</code><br>
+            Thay đổi <i>master</i> bằng bất cứ nhánh nào mà bạn muốn đầy những thay đổi đến.
+            <br><br>
+            Nếu bạn chưa clone một repository hiện có và muốn kết nối repository của bạn đến máy chủ remote, bạn phải thêm nó với<br>
+            <code>git remote add origin &lt;máy-chủ&gt;</code><br>
+            Bây giờ bạn đã có thể đẩy các thay đổi của mình vào máy chủ đã chọn<br>
+
+        </p>
+    </div>
+    <a name="branching"></a>
+    <div class="scrollblock block-branching">
+        <h2>nhánh</h2>
+        <p>
+            Các nhánh (branches) được dùng để phát triển tính năng tách riêng ra từ những nhánh khác. Nhánh <i>master</i> là nhánh "mặc định" khi bạn tạo một repository. Sử dụng các nhánh khác tri đang trong giai đoạn phát triển và merge trở lại nhánh master một khi đã hoàn tất.
+        </p>
+        <img src="img/branches.png" alt="">
+        <p>
+            tạo một nhánh mới và đặt tên là "feature_x" và chuyển qua nhánh đó (từ master) bằng cách<br>
+            <code>git checkout -b feature_x</code><br>
+            trở lại nhánh master<br>
+            <code>git checkout master</code><br>
+            và xóa nhánh feature_x đó lần nửa<br>
+            <code>git branch -d feature_x</code><br>
+            một nhánh <i>không có giá trị với các nhánh khác</i> trừ khi bạn đẩy nhánh đó đến remote repository<br>
+            <code>git push origin &lt;nhánh&gt;</code>
+        </p>
+    </div>
+    <a name="update"></a>
+    <div class="scrollblock block-merging">
+        <h2>cập nhật &amp; trộn (update &amp; merge)</h2>
+        <p>
+            để cập nhật repository cục bộ của bạn và commit mới nhất, thực thi<br>
+            <code>git pull</code><br>
+            trong thự mục đang làm việc để <i>lấy về (fetch)</i> và <i>trộn (merge)</i> các thay đổi ở remote.<br>
+            để trộn một nhánh khác vào nhánh đang hoạt động (vd: master), sử dụng<br>
+            <code>git merge &lt;nhánh&gt;</code><br>
+            trong cả hai trường hợp, git cố gắng trộn tự động (auto-merge) các thay đổi. Không may, điều này không phải lúc nào cũng làm được và thường dẫn đến <i>xung đột</i>.
+            Trách nhiệm của bạn là trộn <i>các xung đột</i> đó
+            thủ công bằng cách chỉnh sửa các tập tin được hiển thị bởi git. Sau khi thay đổi, bạn phải đánh dấu chúng là đã được trộn (merged) với lệnh<br>
+            <code>git add &lt;tên-tập-tin&gt;</code><br>
+            trước khi trộn các thay đổi, bạn có thể xem trước chúng bằng các<br>
+            <code>git diff &lt;nhánh_nguồn&gt; &lt;nhánh_mục_tiêu&gt;</code>
+        </p>
+    </div>
+	
+	   <a name="hints"></a>
+    <div class="scrollblock block-hints">
+        <h2>Viết lại lịch sử</h2>
+		<p>
+		Trong Git, có hai cách chính để tích hợp các thay đổi từ nhánh này vào nhánh khác: đó là merge và rebase.Tương tự với merge,cú pháp sử dụng rebase là <br/>
+		<code>git rebase &lt;nhánh&gt;</code>
+		<br/>
+		Lưu ý rằng snapshot được trỏ tới bởi commit cuối cùng, cho dù nó là kết quả của việc rebase hay merge, thì nó vẫn giống nhau - chỉ khác nhau về các bước thực hiện mà thôi.<br/> Quá trình rebase được thực hiện bằng cách thực hiện lại các thay đổi từ nhánh này qua nhánh khác theo thứ tự chúng đã được thực hiện, trong khi đó merge lại lấy hai điểm kết thúc và gộp chúng lại với nhau.
+		</p>
+        <!-- Nội đung  -->
+    </div>
+	
+    <a name="tagging"></a>
+    <div class="scrollblock block-tagging">
+        <h2>gắn nhãn (tagging)</h2>
+        <p>
+            người ta khuyên nên tạo nhãn (tags) khi phát hành phần mềm. đây là khái niệm được biết đến, đã từng có trên SVN. Bạn tạo tag mới tên là <i>1.0.0</i> bằng cách<br>
+            <code>git tag 1.0.0 1b2e1d63ff</code><br>
+            chuỗi <i>1b2e1d63ff</i> là 10 ký tự đầu tiên của mã commit (commit id) mà bạn muốn tham chiếu đến bằng nhãn của bạn. Bạn có thể lấy mã commit với lệnh <br>
+            <code>git log</code><br>
+            bạn cũng có thể sử dụng ít ký tự hơn từ mã commit, nó chỉ cần phải là duy nhất.
+        </p>
+    </div>
+    <a name="checkout-replace"></a>
+    <div class="scrollblock block-checkout-replace">
+        <h2>thay thế các thay đổi cục bộ</h2>
+        <p>
+            Trong trường hợp bạn làm sai điều gì đó, bạn có thể thay thế các thay đổi cục bộ bằng lệnh<br>
+            <code>git checkout -- &lt;tên-tập-tin&gt;</code><br>
+            lệnh này thay thế những thay đổi trong "tree" đang làm việc với nội dung mới nhất của HEAD. Các thay đổi đã được thêm vào chỉ mục, kể cả các tập tin mới, điều này sẽ được giữ lại.
+        </p>
+        <p>
+            Nếu bạn muốn hủy tất cả thay đổi và commit cục bộ, lấy về (fetch) lịch sử gần đây nhất từ máy chủ và trỏ nhánh master cục bộ vào nó như sau<br>
+            <code>git fetch origin</code><br>
+            <code>git reset --hard origin/master</code>
+        </p>
+    </div>
+ 
+    <a name="resources"></a>
+    <div class="scrollblock block-resources">
+        <h2>các liên kết và tài nguyên </h2>
+        
+        <p></p>
+        <h3>Tham khảo</h3>
+		<ul>
+        	<li><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/vi/index.html"> Git magic(vi-en)</a></li>		
+  			<li><a href="http://git-scm.com/book/vi/">Document(vi-en)</a></li>	
+			<li><a href="https://www.atlassian.com/git/tutorial/">Tutorial(en)</a></li>	
+			<li><a href="https://www.youtube.com/embed/mYjZtU1-u9Y?list=PL1F56EA413018EEE1">Video tutorial</a></li>	
+		</ul>
+        <p></p>
+   </div>
+
+</body></html>
